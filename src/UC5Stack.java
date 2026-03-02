@@ -1,24 +1,20 @@
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.Stack;
 
-public class PalindromeCheckerApp {
+public class UC5Stack {
 
     public static void main(String[] args) {
 
         String word = "madam";
+        Stack<Character> stack = new Stack<>();
 
-        Deque<Character> deque = new LinkedList<>();
-
-        // Insert characters into deque
         for (int i = 0; i < word.length(); i++) {
-            deque.addLast(word.charAt(i));
+            stack.push(word.charAt(i));
         }
 
         boolean isPalindrome = true;
 
-        // Compare front and rear
-        while (deque.size() > 1) {
-            if (deque.removeFirst() != deque.removeLast()) {
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
